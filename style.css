@@ -1,0 +1,289 @@
+/* Import Font dari Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f7f6; /* Warna abu-abu sangat muda agar mata tidak cepat lelah */
+    color: #334155;
+}
+
+/* --- Container & Layout --- */
+.container {
+    max-width: 1100px;
+}
+
+/* --- Card Styling --- */
+.card {
+    border: none;
+    border-radius: 12px;
+    transition: transform 0.2s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Shadow halus */
+    margin-bottom: 24px;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+.card-header {
+    font-weight: 600;
+    border-bottom: 1px solid #f1f5f9;
+    padding: 15px 20px;
+}
+
+.card:hover {
+    transform: translateY(-2px); /* Memberikan efek interaktif */
+}
+
+.bg-dark {
+    background-color: #1e293b !important; /* Biru gelap charcoal yang lebih modern */
+}
+
+/* --- Form Elements --- */
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 3px rgba(78, 115, 223, 0.15);
+    border-color: #4e73df;
+}
+
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+    padding: 8px 16px;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background-color: #4e73df;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #3751a4;
+    transform: translateY(-1px);
+}
+
+/* --- Inventory List Style --- */
+#inventoryList .list-group-item {
+    border-left: none;
+    border-right: none;
+    padding: 12px 20px;
+    border-color: #f1f5f9;
+    transition: background 0.2s;
+}
+
+#inventoryList .list-group-item:hover {
+    background-color: #f8fafc;
+}
+
+/* --- Tables --- */
+.table {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.table thead th {
+    background-color: #f8fafc;
+    color: #64748b;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    border-top: none;
+    padding: 15px;
+}
+
+.table tbody td {
+    padding: 15px;
+    vertical-align: middle;
+    font-size: 0.95rem;
+    border-color: #f1f5f9;
+}
+
+/* --- Badges --- */
+.badge {
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.bg-info {
+    background-color: #e0f2fe !important; /* Soft Blue */
+    color: #0369a1 !important;
+}
+
+.bg-success {
+    background-color: #dcfce7 !important; /* Soft Green */
+    color: #15803d !important;
+}
+
+.bg-warning {
+    background-color: #fef9c3 !important; /* Soft Yellow */
+    color: #854d0e !important;
+}
+
+/* --- Animation untuk Row Baru --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+tr {
+    animation: fadeIn 0.4s ease out;
+}
+
+/* Custom Scrollbar (Optional) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+.empty-state {
+    padding: 40px;
+    text-align: center;
+    color: #94a3b8; /* Warna abu-abu pudar */
+}
+
+.empty-state i {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.empty-state p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+body {
+    margin: 0;
+    padding: 0 !important;
+    overflow-x: hidden;
+}
+
+/* Sidebar Styling */
+.wrapper {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: #1e293b;
+    color: #fff;
+    transition: all 0.3s ease;
+    min-height: 100vh;
+    position: fixed;
+    left: -250px;
+    top: 0;
+    z-index: 10000 !important;
+}
+
+#sidebar.active {
+    left: 0;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #0f172a;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+}
+
+#sidebar ul li a {
+    padding: 15px 25px;
+    font-size: 1.1em;
+    display: block;
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+#sidebar ul li a:hover {
+    color: #fff;
+    background: #334155;
+}
+
+#sidebar ul li.active > a {
+    color: #fff;
+    background: #4e73df;
+}
+
+/* Gaya untuk Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9998 !important;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Adjust Main Content */
+#main-content {
+    width: 100%;
+    flex: 1;
+    transition: all 0.3s ease;
+    min-height: 100vh;
+    padding: 0;
+}    
+
+#main-content.active {
+    margin-left: 250px;
+    width: calc(100% - 250px);    
+}
+
+#main-content .container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 768px) {
+    #main-content.active { 
+        margin-left: 0;
+        width: 100%; 
+    }
+}
+
+.container-fluid {
+    max-width: 1200px;
+    margin-left: 0;
+}
+
+
+/* Pastikan Sidebar memiliki Z-Index lebih tinggi dari overlay */
+#sidebar {
+    z-index: 10000 !important;
+}
+
+.no-transition * {
+    transition: none !important;
+}

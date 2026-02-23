@@ -3,103 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Cek Barang</title>
+    <title>Stok Barang - Sistem Cek Barang</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-light">
 
-<div class="card shadow-sm mb-4">
-    <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center" 
-         style="cursor: pointer;" 
-         data-bs-toggle="collapse" 
-         data-bs-target="#inventoryCollapse">
-        
-        <span>Stok Barang Tersedia</span>
-        
-        <button class="btn btn-sm text-white" type="button" id="btnToggleStok">
-            <span id="iconPanah">▼</span>
-        </button>
-    </div>
-
-    <div class="collapse" id="inventoryCollapse">
-        <div class="card-body p-0">
-            <form id="addInventoryForm" class="row g-2 mb-3 pb-3 border-bottom">
-                <div class="col-7">
-                    <input type="text" id="newBarang" class="form-control form-control-sm" placeholder="Nama barang baru..." required>
-                </div>
-                <div class="col-3">
-                    <input type="number" id="newStok" class="form-control form-control-sm" placeholder="Stok" min="1" required>
-                </div>
-                <div class="col-2">
-                    <button type="submit" class="btn btn-success btn-sm w-100">+</button>
-                </div>
-            </form>
-            
-            <ul id="inventoryList" class="list-group list-group-flush">
-                </ul>
+    <div class="wrapper">
+        <div id="overlay" class="overlay"></div>
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h4>Sistem Peminjaman Barang</h4>
         </div>
+        <ul class="list-unstyled components">
+            <li class="active"><a href="index.html">📦 Stok Barang</a></li>
+            <li><a href="pinjam.html">📝 Peminjaman</a></li>
+            <li><a href="histori.html">📜 Histori</a></li>
+        </ul>
+    </nav>
+
+    <div id="main-content">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-4 px-3">
+            <div class="container">
+                <button type="button" id="sidebarCollapse" class="btn btn-dark">
+                    <span id="btnIcon">☰</span>
+                </button>
+            </div>
+        </nav>
+
+            <div class="container">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-dark text-white">
+                        <span>Kelola Stok Barang</span>
+                    </div>
+                    <div class="card-body">
+                        <form id="addInventoryForm" class="row g-2 mb-3 pb-3 border-bottom">
+                            <div class="col-7">
+                                <input type="text" id="newBarang" class="form-control" placeholder="Nama barang baru..." list="listBarangStok" required>
+                                
+                                <datalist id="listBarangStok">
+                                    </datalist>
+                            </div>
+                            <div class="col-3">
+                                <input type="number" id="newStok" class="form-control" placeholder="Stok" min="1" required>
+                            </div>
+                            <div class="col-2">
+                                <button type="submit" class="btn btn-success w-100">+</button>
+                            </div>
+                        </form>
+                
+                    <ul id="inventoryList" class="list-group list-group-flush">
+                    </ul>
+                    </div>
+                </div>
+            </div>
     </div>
 </div>
 
-    <div class="card shadow-sm mb-4">
-        <div class="card-body">
-            <form id="assetForm" class="row g-3">
-                <div class="col-md-3">
-                    <input type="text" id="namaBarang" class="form-control" placeholder="Nama Barang" required>
-                </div>
-                <div class="col-md-3">
-                    <input type="text" id="peminjam" class="form-control" placeholder="Nama Peminjam" required>
-                </div>
-                <div class="col-md-3">
-                    <input type="text" id="lokasi" class="form-control" placeholder="Lokasi/Ruangan" required>
-                </div>
-                <div class="col-md-3">
-                    <button type="submit" class="btn btn-primary w-100">Catat Barang</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <div class="table-responsive">
-        <table class="table table-hover bg-white shadow-sm">
-            <thead class="table-dark">
-                <tr>
-                    <th>Barang</th>
-                    <th>Peminjam</th>
-                    <th>Lokasi</th>
-                    <th>Waktu Pinjam</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody id="assetTable">
-                </tbody>
-        </table>
-    </div>
-</div>
-
-<script src="script.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
-
-<div class="mt-5">
-    <h4 class="mb-3 text-secondary">Histori Peminjaman & Pengembalian</h4>
-    <div class="table-responsive">
-        <table class="table table-sm table-bordered bg-white shadow-sm">
-            <thead class="table-secondary">
-                <tr>
-                    <th>Barang</th>
-                    <th>Peminjam</th>
-                    <th>Lokasi</th>
-                    <th>Waktu Pinjam</th>
-                    <th>Waktu Kembali</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody id="historyTable">
-                </tbody>
-        </table>
-    </div>
-    <button class="btn btn-outline-danger btn-sm" onclick="clearHistory()">Hapus Semua Histori</button>
-</div>
